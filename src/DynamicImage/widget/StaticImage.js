@@ -1,8 +1,12 @@
-dojo.provide("DynamicImage.widget.StaticImage");
-
-mendix.widget.declare('DynamicImage.widget.StaticImage', {
+  define([
+    'dojo/_base/declare',
+    "dijit/_TemplatedMixin",
+    'mxui/widget/_WidgetBase'
+  ], function (declare, _WidgetBase, _TemplatedMixin) {
+    'use strict';
+  
+  return declare('DynamicImage.widget.StaticImage', [_WidgetBase, _TemplatedMixin], {
 	//DECLARATION
-	 addons       : [dijit._Templated],
 	 templatePath : dojo.moduleUrl('DynamicImage.widget', "templates/DynamicImage.html"), //MWE: use same template
   inputargs: { 
 		  imageurl : '',
@@ -15,6 +19,8 @@ mendix.widget.declare('DynamicImage.widget.StaticImage', {
       this.imageNode.src = this.imageurl;
     else
       this.imageNode.src = this.defaultImage;
-    this.actRendered();
   }
 });
+});
+
+require(['DynamicImage/widget/StaticImage']);

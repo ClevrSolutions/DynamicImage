@@ -20,9 +20,14 @@
 
 	File is best readable with tabwidth = 2;
 */
-dojo.provide("DynamicImage.widget.MobileDynamicImage");
+define([
+	'dojo/_base/declare',
+	"dijit/_TemplatedMixin",
+	'mxui/widget/_WidgetBase'
+], function (declare, _WidgetBase, _TemplatedMixin) {
+	'use strict';
 
-dojo.declare('DynamicImage.widget.MobileDynamicImage', mobile.widget._Widget, {
+return declare('DynamicImage.widget.MobileDynamicImage', [_WidgetBase, _TemplatedMixin], {
 	//DECLARATION
 	imageattr : 'image',
 	width  : 300,
@@ -185,14 +190,14 @@ dojo.declare('DynamicImage.widget.MobileDynamicImage', mobile.widget._Widget, {
 	applyContext : function(context, callback){
 		logger.debug(this.id + ".applyContext"); 
 		if (context && !!context.getTrackId()) {
-			this.subhandler = this.subscribe({ guid : context.getTrackID(), callback : dojo.hitch(this, this.setDataobject)});
+			this.subhandler = this.subscribe({ guid : context.getTrackId(), callback : dojo.hitch(this, this.setDataobject)});
 			//mx.processor.subscribeToGUID(this, context.getTrackID());
 			var obj =  context.getTrackObject();
 			if (obj != null)
 				this.setDataobject(obj);
 			else {
 				mx.processor.get({
-					guid : context.getTrackID(),
+					guid : context.getTrackId(),
 					callback : this.setDataobject
 				}, this);
 			}
@@ -212,3 +217,6 @@ dojo.declare('DynamicImage.widget.MobileDynamicImage', mobile.widget._Widget, {
 		}
 	}
 });
+});
+
+require(['DynamicImage/widget/MobileDynamicImage']);

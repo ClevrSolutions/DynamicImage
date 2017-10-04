@@ -1,6 +1,11 @@
-dojo.provide("DynamicImage.widget.MobileStaticImage");
+define([
+	'dojo/_base/declare',
+	"dijit/_TemplatedMixin",
+	'mxui/widget/_WidgetBase'
+], function (declare, _WidgetBase, _TemplatedMixin) {
+	'use strict';
 
-dojo.declare('DynamicImage.widget.MobileStaticImage', mobile.widget._Widget, {
+return declare('DynamicImage.widget.MobileStaticImage', [_WidgetBase, _TemplatedMixin], {
 	imageurl : '',
 	defaultImage : '',
 	alt : '',
@@ -22,3 +27,6 @@ dojo.declare('DynamicImage.widget.MobileStaticImage', mobile.widget._Widget, {
 		this.actLoaded(function (){}); // temp. fix for a client issue, should be fixed in 4.4
 	}
 });
+});
+
+require(['DynamicImage/widget/MobileStaticImage']);
