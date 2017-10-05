@@ -21,13 +21,13 @@
 	File is best readable with tabwidth = 2;
 */
 define([
-	'dojo/_base/declare',
-	"dijit/_TemplatedMixin",
-	'mxui/widget/_WidgetBase'
-], function (declare, _WidgetBase, _TemplatedMixin) {
-	'use strict';
+    'dojo/_base/declare',
+    'mxui/widget/_WidgetBase',
+    "mxui/dom"
+], function (declare, _WidgetBase, mxuiDom) {
+    'use strict';
 
-return declare('DynamicImage.widget.MobileDynamicImage', [_WidgetBase, _TemplatedMixin], {
+    return declare('DynamicImage.widget.MobileDynamicImage', [_WidgetBase], {
 	//DECLARATION
 	imageattr : 'image',
 	width  : 300,
@@ -179,7 +179,7 @@ return declare('DynamicImage.widget.MobileDynamicImage', [_WidgetBase, _Template
 		//houskeeping
 		logger.debug(this.id + ".postCreate");
 
-		this.imageNode = mobile.dom.create("img", {
+		this.imageNode = mxuiDom.create("img", {
 			src : (this.imageurl != '')?this.imageurl:this.defaultImage,
 			alt : this.alt
 		});
@@ -191,7 +191,7 @@ return declare('DynamicImage.widget.MobileDynamicImage', [_WidgetBase, _Template
 		logger.debug(this.id + ".applyContext"); 
 		if (context && !!context.getTrackId()) {
 			this.subhandler = this.subscribe({ guid : context.getTrackId(), callback : dojo.hitch(this, this.setDataobject)});
-			//mx.processor.subscribeToGUID(this, context.getTrackID());
+			//mx.processor.subscribeToGUID(this, context.getTrackId());
 			var obj =  context.getTrackObject();
 			if (obj != null)
 				this.setDataobject(obj);
