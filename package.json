@@ -1,16 +1,13 @@
 {
   "name": "dynamic-image",
   "widgetName": "DynamicImage",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
-  "copyright": "Mendix BV",
+  "copyright": "",
+  "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": ""
-  },
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": ""
+    "url": "https://github.com/MansystemsCorp/DynamicImage"
   },
   "devDependencies": {
     "grunt": "1.0.1",
