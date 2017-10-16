@@ -18,8 +18,7 @@ x0UQoR9IhKRMK2vOoOmGl2FYfDw3qCBNMBTM1mp+5BhN7r8IaqVSqYibWe23AAMA
 WwlWhAsSTwAAAAAASUVORK5CYII=</icon>
 
   <properties>
-		<property key="defaultImage" type="string"
-			defaultValue="ui/_images/layout/DataLoader.gif" required="false">
+		<property key="defaultImage" type="string" required="false">
 			<caption>Image URL</caption>
 			<category>Data source</category>
 			<description>
